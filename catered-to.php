@@ -27,7 +27,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //Adds Items and Quotes post types to store individual menu items
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
-  register_post_type( 'item',
+  register_post_type( 'ct_item',
     array(
       'labels' => array(
         'name' => __( 'Items' ),
@@ -37,9 +37,9 @@ function create_post_type() {
       'has_archive' => true,
       'menu_icon' => 'dashicons-products',
       'supports' => array('title'),
-    )  
+    )
 );
-    register_post_type( 'ct_quote', 
+    register_post_type( 'ct_event',
         array(
             'labels' => array(
                'name' => __('Quotes'),
@@ -91,7 +91,7 @@ function custom_item_column($column, $post_id) {
    switch($column){
         case 'price':
             echo('$'.get_post_meta($post_id,'ct_price' ,true));
-            break;  
+            break;
     }
 }
 add_action('manage_item_posts_custom_column','custom_item_column',10,2);
@@ -106,4 +106,3 @@ function ct_create_course() {
 }
 add_action( 'init', 'ct_create_course',0);
 //
-
