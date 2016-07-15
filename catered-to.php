@@ -42,8 +42,8 @@ function create_post_type() {
     register_post_type( 'ct_event',
         array(
             'labels' => array(
-               'name' => __('Quotes'),
-               'singular_name' => __('Quote'),
+               'name' => __('Events'),
+               'singular_name' => __('Event'),
             ),
             'public' => true,
             'has_archive' => true,
