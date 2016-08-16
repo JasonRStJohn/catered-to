@@ -121,7 +121,7 @@ function custom_item_column($column, $post_id) {
             break;
     }
 }
-add_action('manage_item_posts_custom_column','custom_item_column',10,2);
+add_action('manage_ct_item_posts_custom_column','custom_ct_item_column',10,2);
 /* Plan for Event and Order Schema
    Event
       id
