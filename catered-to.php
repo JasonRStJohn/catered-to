@@ -80,7 +80,7 @@ function ct_item_type() {
 }
 add_action( 'init', 'ct_item_type', 0 );
 }
-Creates a callback funtion for custom Price metabox in the edit screen of the Items post type
+//Creates a callback funtion for custom Price metabox in the edit screen of the Items post type
 function custom_meta_box_markup($post)
 {
    wp_nonce_field(basename(__FILE__), 'ct_price_nonce');
