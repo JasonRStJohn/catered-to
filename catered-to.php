@@ -62,7 +62,7 @@ function ct_item_type() {
 		'description'           => __( 'Catered To Menu Item', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => array(''),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
@@ -143,7 +143,7 @@ if ( ! function_exists( 'ct_course_tax' ) ) {
 function ct_course_tax() {
 
 	$labels = array(
-		'name'                       => _x( 'Courses', 'Taxonomy General Name', 'text_domain' ),
+		'name'                       => _x( 'Course', 'Taxonomy General Name', 'text_domain' ),
 		'singular_name'              => _x( 'Course', 'Taxonomy Singular Name', 'text_domain' ),
 		'menu_name'                  => __( 'Course', 'text_domain' ),
 		'all_items'                  => __( 'All Courses', 'text_domain' ),
