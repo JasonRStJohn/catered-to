@@ -114,7 +114,7 @@ function add_item_columns($columns) {
     return array_merge($columns,
         array('price'=>__('Price')));
 }
-function custom_item_column($column, $post_id) {
+function custom_ct_item_column($column, $post_id) {
    switch($column){
         case 'price':
             echo('$'.get_post_meta($post_id,'ct_price' ,true));
