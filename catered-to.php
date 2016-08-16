@@ -95,7 +95,7 @@ function custom_meta_box_markup($post)
 //Adds the Price Metabox to Items using the above callback
 function add_custom_meta_box()
 {
-    add_meta_box("demo-meta-box", "Price", "custom_meta_box_markup", "item", "normal", "high", null);
+    add_meta_box("demo-meta-box", "Price", "custom_meta_box_markup", "ct_item", "normal", "high", null);
 }
 
 add_action("add_meta_boxes", "add_custom_meta_box");
