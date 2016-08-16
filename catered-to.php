@@ -79,9 +79,8 @@ function ct_item_type() {
 	register_post_type( 'ct_item', $args );
 }
 add_action( 'init', 'ct_item_type', 0 );
-flush_rewrite_rules();
-}
-//Creates a callback funtion for custom Price metabox in the edit screen of the Items post type
+}							
+/*Creates a callback funtion for custom Price metabox in the edit screen of the Items post type
 function custom_meta_box_markup($post)
 {
    wp_nonce_field(basename(__FILE__), 'ct_price_nonce');
@@ -137,7 +136,7 @@ add_action('manage_item_posts_custom_column','custom_item_column',10,2);
       course
       itm_id
       qty
-*/
+*//*
 function ct_create_course() {
     register_taxonomy('course','item', array(
         'label' => __('Course', 'textdomain'),
@@ -147,4 +146,4 @@ function ct_create_course() {
     ) );
 }
 add_action( 'init', 'ct_create_course',0);
-//
+*/
