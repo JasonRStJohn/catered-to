@@ -79,7 +79,6 @@ function ct_item_type() {
 	register_post_type( 'ct_item', $args );
 }
 add_action( 'init', 'ct_item_type', 0 );
-}
 flush_rewrite_rules();
 }
 //Creates a callback funtion for custom Price metabox in the edit screen of the Items post type
@@ -137,7 +136,7 @@ add_action('manage_item_posts_custom_column','custom_item_column',10,2);
       ev_id
       course
       itm_id
-      qty  
+      qty
 */
 function ct_create_course() {
     register_taxonomy('course','item', array(
