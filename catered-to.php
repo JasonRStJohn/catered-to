@@ -124,7 +124,21 @@ function custom_item_column($column, $post_id) {
     }
 }
 add_action('manage_item_posts_custom_column','custom_item_column',10,2);
-//creates Course custom taxonomy
+/* Plan for Event and Order Schema
+   Event
+      id
+      name
+      date
+      date booked
+      cost
+      paid
+    Order
+      id
+      ev_id
+      course
+      itm_id
+      qty  
+*/
 function ct_create_course() {
     register_taxonomy('course','item', array(
         'label' => __('Course', 'textdomain'),
