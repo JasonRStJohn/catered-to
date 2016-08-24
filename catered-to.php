@@ -185,7 +185,7 @@ add_action( 'init', 'ct_course_tax', 0 );
 function ct_ajax_menu( $cats ){
 	$loop = new WP_Query( array( 'post_type'=>'ct_menu_item'));
 	while ( $loop->have_posts()) : $loop->the_post(); 
-	echo '<div class="ct-menu-item">'.$post->post_title.'</div> - <div class="ct-menu-price">$ '.$post->ct_price.'</div>';
+	return '<div class="ct-menu-item">'.$post->post_title.'</div> - <div class="ct-menu-price">$ '.$post->ct_price.'</div>';
 	<?php endwhile; wp_reset_query();	
 }
 add_shortcode( 'ctMenu', 'ct_ajax_menu' );
