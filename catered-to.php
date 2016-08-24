@@ -187,7 +187,7 @@ function ct_ajax_menu(){
 	while ( $loop->have_posts()) : $loop->the_post();
 	$title = get_the_title();
 	$price = get_post_meta($post_id,'ct_price' ,true);
-	echo '<div class="ct-menu-item">'.$title.'</div> - <div class="ct-menu-price">$ '.$title.'</div><br />';
+	echo '<div class="ct-menu-item">'.$title.' - $ '.$price.'</div><br />';
 	endwhile; wp_reset_query();	
 }
 add_shortcode( 'ctMenu', 'ct_ajax_menu' );
