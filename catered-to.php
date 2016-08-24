@@ -188,7 +188,7 @@ function ct_ajax_menu(){
 	while ( $loop->have_posts()) : $loop->the_post();
 	$title = get_the_title();
 	$price = get_post_meta(get_the_ID(),'ct_price' ,true);
-	echo '<tr><td>'.$title.'</td> -<td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
+	echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo "</table>"; wp_reset_query();	
 	
 }
