@@ -184,10 +184,12 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 function ct_ajax_menu(){
 	$loop = new WP_Query( array( 'post_type'=>'ct_item'));
+	echo "<table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>"
 	while ( $loop->have_posts()) : $loop->the_post();
 	$title = get_the_title();
 	$price = get_post_meta(get_the_ID(),'ct_price' ,true);
-	echo '<div class="ct-menu-item"><span class="ct-title">'.$title.'</span> -<span class="ct-price"> $ '.$price.'</span><span class="ct-input"><input type="number" style="width:60px"><input type="button" value="Add"></span></div>';
+	echo '<tr><td>'.$title.'</td> -<td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; wp_reset_query();	
+	echo "</table>";
 }
 add_shortcode( 'ctMenu', 'ct_ajax_menu' );
