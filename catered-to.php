@@ -183,7 +183,7 @@ add_action( 'init', 'ct_course_tax', 0 );
 // Create shortcode for menu page
 
 function ct_ajax_menu( $cats ){
-	$loop = new WP_Query( array( 'post_type'=>'ct_menu_item','tax_query'=> array( 'taxonomy' => 'ct_course_tax', 'field'=>'slug', 'terms' => '',),),);
+	$loop = new WP_Query( array( 'post_type'=>'ct_menu_item');
 	while ( $loop->have_posts()) : $loop->the_post(); ?>
 	<div class="ct-menu-item"><div class="ct-item-name"><?php get_the_title();?></div> - <div class="ct-price">$ <?php echo $post->ct_price; ?></div><br />
 	<?php endwhile; wp_reset_query();	
