@@ -184,7 +184,7 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 function ct_ajax_menu(){
 	$loop = new WP_Query( array( 'post_type'=>'ct_item','orderby'=>'title','order'=>'ASC'));
-	echo '<div class="ct-menu-select">Testing</div>'
+	echo '<div class="ct-menu-select">Testing</div>';
 	echo '<table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
 	while ( $loop->have_posts()) : $loop->the_post();
 	$title = get_the_title();
