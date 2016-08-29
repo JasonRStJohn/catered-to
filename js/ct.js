@@ -1,8 +1,18 @@
+//Genre Ajax Filtering
+jQuery(function($)
+{
+  ct_course();
+
+  //If input is changed, load posts
+      $('#genre-filter input').live('click', function(){
+          ct_course(); //Load Posts
+      });
 
 
 //Main ajax function
-   function ct_course_items()
+   function ct_course(course = false)
    {
+       var course_value = course;
        var ajax_url = ajax_genre_params.ajax_url; //Get ajax url (added through wp_localize_script)
 
        $.ajax({
@@ -10,8 +20,7 @@
            url: ajax_url,
            data: {
                action: 'course_select_filter',
-               courses: getSelectedCourse, //Get array of values from previous function
-               options: getSelectedOptions //If paged value is being sent through with function call, store here
+               course: course_value
            },
            beforeSend: function ()
            {
