@@ -24,7 +24,18 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+function enqueue_genre_ajax_scripts() {
+    wp_register_script( 'ct-ajax-js', get_bloginfo('template_url') . '/js/ct.js', array( 'jquery' ), '', true );
+    wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'ct-ajax-js' );
+}
+add_action('wp_enqueue_scripts', 'enqueue_genre_ajax_scripts');
+
+
 //Adds Items and Quotes post types to store individual menu items
+
+
 if ( ! function_exists('ct_item_type') ) {
 
 // Register Custom Post Type
@@ -183,12 +194,7 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 // Create shortcode for menu page
 //Enqueue Ajax Scripts
-function enqueue_genre_ajax_scripts() {
-    wp_register_script( 'ct-ajax-js', get_bloginfo('template_url') . '/js/ct.js', array( 'jquery' ), '', true );
-    wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-    wp_enqueue_script( 'ct-ajax-js' );
-}
-add_action('wp_enqueue_scripts', 'enqueue_genre_ajax_scripts');
+
 
 function ajax_ct_course(){
 	$query_data = $_GET;
