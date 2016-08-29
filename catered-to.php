@@ -191,6 +191,11 @@ $ct_menu_args = array(
 // Create shortcode for menu page
 
 function ct_ajax_menu(){
+	$ct_menu_args = array(
+	    'post_type' => 'ct_item',
+	    'orderby' => 'title',
+	    'order' => 'ASC'
+	);
   $catloop = get_terms( array('taxonomy'=>'ct_course'));
 	$loop = new WP_Query($ct_menu_args);
 	echo '<div class="ct-menu-select"><ul class="ct-menu-nav">';
