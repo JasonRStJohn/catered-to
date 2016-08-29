@@ -219,5 +219,5 @@ function ajax_ct_course(){
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo '</table></div>'; wp_reset_query();
   die();
-add_shortcode( 'ctMenu', 'ajax_ct_course' );
 }
+add_shortcode( 'ctMenu', 'ajax_ct_course' );
