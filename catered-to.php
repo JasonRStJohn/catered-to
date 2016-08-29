@@ -191,10 +191,16 @@ $ct_menu_args = array(
 // Create shortcode for menu page
 
 function ct_ajax_menu(){
+	$ct_tax_query = array (
+			'taxonomy' => 'ct_course',
+			'field'    => 'slug',
+			'terms'    => 'beef',
+		),
 	$ct_menu_args = array(
 	    'post_type' => 'ct_item',
 	    'orderby' => 'title',
-	    'order' => 'ASC'
+	    'order' => 'ASC',
+			'tax_query' => $ct_tax_query
 	);
   $catloop = get_terms( array('taxonomy'=>'ct_course'));
 	$loop = new WP_Query($ct_menu_args);
