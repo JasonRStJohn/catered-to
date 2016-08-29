@@ -1,7 +1,6 @@
 //Genre Ajax Filtering
 jQuery(document).ready((function()
 {
-  ct_course('beef');
 
   //If input is changed, load posts
       jQuery('#genre-filter input').live('click', function(){
