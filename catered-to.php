@@ -198,7 +198,7 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 function ajax_ct_course(){
 	$query_data = $_GET;
-	$ctCourse = 'beef';
+	$ctCourse = ($query_data['course']);
 	$ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
