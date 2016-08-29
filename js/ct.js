@@ -7,7 +7,7 @@ jQuery(function($)
       $('#genre-filter input').live('click', function(){
           ct_course(); //Load Posts
       });
-}
+});
 
 //Main ajax function
    function ct_course(course)
