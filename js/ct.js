@@ -4,7 +4,7 @@ jQuery(document).ready((function()
 
   //If input is changed, load posts
       jQuery('#ct-menu-select input').live('click', function(){
-          ct_course(); //Load Posts
+          ct_course(jQuery(this).attr("value")); //Load Posts
       });
 
 }));
