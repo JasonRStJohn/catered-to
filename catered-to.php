@@ -182,21 +182,21 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 //PHP portion of AJAX pagination and filtering
 
-$book_args = array(
+$ct_menu_args = array(
     'post_type' => 'ct_item',
     'posts_per_page' => -1,
-    'tax_query' => $tax_query,
-    'paged' => $paged
+    'orderby' => 'title',
+    'order' => 'ASC'
 );
 
 // Create shortcode for menu page
 
 function ct_ajax_menu(){
   $catloop = get_terms( array('taxonomy'=>'ct_course'));
-	$loop = new WP_Query( array( 'post_type'=>'ct_item','orderby'=>'title','order'=>'ASC'));
+	$loop = new WP_Query( array($ct_menu_args));
 	echo '<div class="ct-menu-select"><ul class="ct-menu-nav">';
 	foreach ($catloop as $cata) {
-		echo '<li>'.$cata->name.'</li>';
+		echo '<li><input type="button" value="'.$cata->name.'"></li>';
 	}
 	echo '</ul></div>';
 	echo '<div class="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
