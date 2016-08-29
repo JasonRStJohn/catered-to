@@ -1,5 +1,5 @@
 //Genre Ajax Filtering
-$(function($)
+jQuery(function($)
 {
   ct_course();
 
