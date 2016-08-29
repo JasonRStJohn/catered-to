@@ -26,7 +26,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 function enqueue_genre_ajax_scripts() {
-    wp_register_script( 'ct-ajax-js', get_bloginfo('template_url') . '/js/ct.js', array( 'jquery' ), '', true );
+    wp_register_script( 'ct-ajax-js', plugin_dir_url( __FILE__ ) . '/js/ct.js', array( 'jquery' ), '', true );
     wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
     wp_enqueue_script( 'ct-ajax-js' );
 }
