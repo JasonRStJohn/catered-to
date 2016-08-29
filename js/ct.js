@@ -37,4 +37,5 @@ jQuery(function($)
                $("#genre-results").html('<p>There has been an error</p>');
            }
        });
-   };
+   }
+});
