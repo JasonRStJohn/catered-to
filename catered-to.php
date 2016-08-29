@@ -29,6 +29,7 @@ function enqueue_ct_ajax_scripts() {
     wp_register_script( 'ct-ajax-js', 'http://jason.infinity.graphics/steve/wp-content/plugins/catered-to/js/ct.js');
     wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
     wp_enqueue_script( 'ct-ajax-js' );
+		wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'enqueue_ct_ajax_scripts');
 
