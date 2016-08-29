@@ -231,9 +231,9 @@ function ajax_ct_course(){
 
 function ajax_ct_course_page(){
   ajax_ct_course_select();
-  echo '<div id="ct-menu">'
+  echo '<div id="ct-menu">';
   ajax_ct_course();
-  echo'</div>
+  echo'</div>';
 }
 add_shortcode( 'ctMenu', 'ajax_ct_course_page' );
 //Add Ajax Actions
