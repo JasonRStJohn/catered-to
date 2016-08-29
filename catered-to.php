@@ -228,5 +228,5 @@ function ajax_ct_course(){
 }
 add_shortcode( 'ctMenu', 'ajax_ct_course' );
 //Add Ajax Actions
-add_action('wp_ajax_genre_filter', 'ajax_genre_filter');
-add_action('wp_ajax_nopriv_genre_filter', 'ajax_genre_filter');
+add_action('wp_ajax_course_select_filter', 'ajax_ct_course');
+add_action('wp_ajax_nopriv_course_select_filter', 'ajax_ct_course');

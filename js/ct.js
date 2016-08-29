@@ -18,7 +18,7 @@ jQuery(document).ready((function()
            url: ajax_url,
            data: {
                action: 'course_select_filter',
-               course: 'beef'
+               course: course_value
            },
            beforeSend: function ()
            {
