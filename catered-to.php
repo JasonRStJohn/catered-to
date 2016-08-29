@@ -197,8 +197,10 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 
 function ajax_ct_course(){
+  $catloop = get_terms( array('taxonomy'=>'ct_course'));
 	$query_data = $_GET;
 	$ctCourse = ($query_data['course']);
+  if ($ctCourse == 'all')  $ctCourse = $catloop ;
 	$ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
@@ -211,7 +213,7 @@ function ajax_ct_course(){
 	    'order' => 'ASC',
 			'tax_query' => $ct_tax_query
 	);
-  $catloop = get_terms( array('taxonomy'=>'ct_course'));
+
 	$loop = new WP_Query($ct_menu_args);
 	echo '<div id="ct-menu-select"><ul class="ct-menu-nav">';
 	foreach ($catloop as $cata) {
