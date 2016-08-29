@@ -1,7 +1,7 @@
 //Genre Ajax Filtering
 jQuery(document).ready((function()
 {
-  ct_course(true);
+  ct_course('false');
   //If input is changed, load posts
       jQuery('#ct-menu-select input').live('click', function(){
           ct_course(jQuery(this).attr("value")); //Load Posts
