@@ -213,7 +213,7 @@ function ajax_ct_course(){
 	);
   $catloop = get_terms( array('taxonomy'=>'ct_course'));
 	$loop = new WP_Query($ct_menu_args);
-	echo '<div class="ct-menu-select"><ul class="ct-menu-nav">';
+	echo '<div id="ct-menu-select"><ul class="ct-menu-nav">';
 	foreach ($catloop as $cata) {
 		echo '<li><input type="button" value="'.$cata->name.'"></li>';
 	}
