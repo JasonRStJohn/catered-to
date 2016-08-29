@@ -10,7 +10,7 @@ jQuery(function($)
 
 
 //Main ajax function
-   function ct_course(course = false)
+   function ct_course(course)
    {
        var course_value = course;
        var ajax_url = ajax_genre_params.ajax_url; //Get ajax url (added through wp_localize_script)
