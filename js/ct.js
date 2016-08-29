@@ -8,14 +8,13 @@ jQuery(document).ready((function($)
           ct_course(); //Load Posts
       });
 
-
+}));
 //Main ajax function
    function ct_course(course)
    {
        var course_value = course;
        var ajax_url = ajax_genre_params.ajax_url; //Get ajax url (added through wp_localize_script)
-
-       $.ajax({
+       jQuery.ajax({
            type: 'GET',
            url: ajax_url,
            data: {
@@ -38,4 +37,3 @@ jQuery(document).ready((function($)
            }
        });
    }
-}));
