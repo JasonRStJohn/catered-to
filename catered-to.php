@@ -206,6 +206,8 @@ function ajax_ct_course_select(){
 function ajax_ct_course(){
 	$query_data = $_GET;
 	$ctCourse = ($query_data['course']);
+  if($ctCourse == 'all') $ctCourse = array["beef","chicken"];
+  ]
 	$ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
