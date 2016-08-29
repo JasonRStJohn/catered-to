@@ -195,9 +195,15 @@ add_action( 'init', 'ct_course_tax', 0 );
 // Create shortcode for menu page
 //Enqueue Ajax Scripts
 
-
+function ajax_ct_course_select(){
+    $catloop = get_terms( array('taxonomy'=>'ct_course'));
+    echo '<div id="ct-menu-select"><ul class="ct-menu-nav">';
+  	foreach ($catloop as $cata) {
+  		echo '<li><input type="button" value="'.$cata->name.'" name="'.$cata->slug.'"></li>';
+  	}
+    echo '</ul></div>';
+}
 function ajax_ct_course(){
-  $catloop = get_terms( array('taxonomy'=>'ct_course'));
 	$query_data = $_GET;
 	$ctCourse = ($query_data['course']);
 	$ct_tax_query = array ( array(
@@ -212,14 +218,8 @@ function ajax_ct_course(){
 	    'order' => 'ASC',
 			'tax_query' => $ct_tax_query
 	);
-
 	$loop = new WP_Query($ct_menu_args);
-	echo '<div id="ct-menu-select"><ul class="ct-menu-nav">';
-	foreach ($catloop as $cata) {
-		echo '<li><input type="button" value="'.$cata->name.'" name="'.$cata->slug.'"></li>';
-	}
-	echo '</ul></div>';
-	echo '<div id="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
+		echo '<div id="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
 	while ( $loop->have_posts()) : $loop->the_post();
 	 $title = get_the_title();
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
@@ -227,7 +227,13 @@ function ajax_ct_course(){
 	endwhile; echo '</table></div>'; wp_reset_query();
   die();
 }
-add_shortcode( 'ctMenu', 'ajax_ct_course' );
+
+
+function ajax_ct_course_page(){
+  ajax_ct_course_select();
+  ajax_ct_course();
+}
+add_shortcode( 'ctMenu', 'ajax_ct_course_page' );
 //Add Ajax Actions
 add_action('wp_ajax_course_select_filter', 'ajax_ct_course');
 add_action('wp_ajax_nopriv_course_select_filter', 'ajax_ct_course');
