@@ -33,7 +33,7 @@ jQuery(document).ready((function()
            error: function()
            {
                                //If an ajax error has occured, do something here...
-               jQuery("#genre-results").html('<p>There has been an error</p>');
+               jQuery("#ct-menu").html('<p>There has been an error</p>');
            }
        });
    }
