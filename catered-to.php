@@ -193,13 +193,12 @@ add_action('wp_enqueue_scripts', 'enqueue_genre_ajax_scripts');
 function ajax_ct_course(){
 	$query_data = $_GET;
 	$ctCourse = ($query_data['course']);
-	$genre_terms = ($query_data['genres']) ? explode(',',$query_data['genres']) : false;
 
-		function ct_ajax_menu($course = 'all'){
+		function ct_ajax_menu($ctCourse){
 	$ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
-			'terms'    => $course
+			'terms'    => $ctCourse
 		)
 		);
 	$ct_menu_args = array(
