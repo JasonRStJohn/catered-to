@@ -180,21 +180,26 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 }
 
-//PHP portion of AJAX pagination and filtering
-
-$ct_menu_args = array(
-    'post_type' => 'ct_item',
-    'orderby' => 'title',
-    'order' => 'ASC'
-);
 
 // Create shortcode for menu page
+//Enqueue Ajax Scripts
+function enqueue_genre_ajax_scripts() {
+    wp_register_script( 'ct-ajax-js', get_bloginfo('template_url') . '/js/ct.js', array( 'jquery' ), '', true );
+    wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'ct-ajax-js' );
+}
+add_action('wp_enqueue_scripts', 'enqueue_genre_ajax_scripts');
 
-function ct_ajax_menu(){
+function ajax_ct_course(){
+	$query_data = $_GET;
+	$ctCourse = ($query_data['course']);
+	$genre_terms = ($query_data['genres']) ? explode(',',$query_data['genres']) : false;
+
+		function ct_ajax_menu($course = 'all'){
 	$ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
-			'terms'    => 'beef'
+			'terms'    => $course
 		)
 		);
 	$ct_menu_args = array(
@@ -207,7 +212,7 @@ function ct_ajax_menu(){
 	$loop = new WP_Query($ct_menu_args);
 	echo '<div class="ct-menu-select"><ul class="ct-menu-nav">';
 	foreach ($catloop as $cata) {
-		echo '<li><input type="button" value="'.$cata->name.'"></li>';
+		echo '<li><input type="button" value="'.$cata->name.'" onclick="ct_course('.$cata->slug.');"></li>';
 	}
 	echo '</ul></div>';
 	echo '<div class="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
