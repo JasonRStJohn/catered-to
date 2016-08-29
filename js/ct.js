@@ -3,7 +3,7 @@ jQuery(document).ready((function()
 {
 
   //If input is changed, load posts
-      jQuery('#genre-filter input').live('click', function(){
+      jQuery('#ct-menu-select input').live('click', function(){
           ct_course(); //Load Posts
       });
 
