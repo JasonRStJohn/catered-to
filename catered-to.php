@@ -219,19 +219,21 @@ function ajax_ct_course(){
 			'tax_query' => $ct_tax_query
 	);
 	$loop = new WP_Query($ct_menu_args);
-		echo '<div id="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
+		echo '<table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
 	while ( $loop->have_posts()) : $loop->the_post();
 	 $title = get_the_title();
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
-	endwhile; echo '</table></div>'; wp_reset_query();
+	endwhile; echo '</table>'; wp_reset_query();
   die();
 }
 
 
 function ajax_ct_course_page(){
   ajax_ct_course_select();
+  echo '<div id="ct-menu">'
   ajax_ct_course();
+  echo'</div>
 }
 add_shortcode( 'ctMenu', 'ajax_ct_course_page' );
 //Add Ajax Actions
