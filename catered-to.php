@@ -227,3 +227,6 @@ function ajax_ct_course(){
   die();
 }
 add_shortcode( 'ctMenu', 'ajax_ct_course' );
+//Add Ajax Actions
+add_action('wp_ajax_genre_filter', 'ajax_genre_filter');
+add_action('wp_ajax_nopriv_genre_filter', 'ajax_genre_filter');
