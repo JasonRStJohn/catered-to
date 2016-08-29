@@ -1,10 +1,10 @@
 //Genre Ajax Filtering
-jQuery(document).ready((function($)
+jQuery(document).ready((function()
 {
   ct_course();
 
   //If input is changed, load posts
-      $('#genre-filter input').live('click', function(){
+      jQuery('#genre-filter input').live('click', function(){
           ct_course(); //Load Posts
       });
 
@@ -28,12 +28,12 @@ jQuery(document).ready((function($)
            success: function(data)
            {
                //Hide loader here
-               $('#genre-results').html(data);
+               jQuery('#ct-menu').html(data);
            },
            error: function()
            {
                                //If an ajax error has occured, do something here...
-               $("#genre-results").html('<p>There has been an error</p>');
+               jQuery("#genre-results").html('<p>There has been an error</p>');
            }
        });
    }
