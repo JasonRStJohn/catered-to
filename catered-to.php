@@ -184,7 +184,6 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 $ct_menu_args = array(
     'post_type' => 'ct_item',
-    'posts_per_page' => -1,
     'orderby' => 'title',
     'order' => 'ASC'
 );
