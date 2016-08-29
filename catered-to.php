@@ -193,10 +193,10 @@ $ct_menu_args = array(
 
 function ct_ajax_menu(){
   $catloop = get_terms( array('taxonomy'=>'ct_course'));
-	$loop = new WP_Query( array($ct_menu_args));
+	$loop = new WP_Query($ct_menu_args);
 	echo '<div class="ct-menu-select"><ul class="ct-menu-nav">';
 	foreach ($catloop as $cata) {
-		echo '<li><input type="button" value="'.$cata->name.'"></li>';
+		echo '<li><input type="button" value="'.$cata->name.'" onclick="ct_menu_change('.$cata->name')"></li>';
 	}
 	echo '</ul></div>';
 	echo '<div class="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
