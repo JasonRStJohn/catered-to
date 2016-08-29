@@ -194,8 +194,8 @@ function ct_ajax_menu(){
 	$ct_tax_query = array (
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
-			'terms'    => 'beef',
-		),
+			'terms'    => 'beef'
+		);
 	$ct_menu_args = array(
 	    'post_type' => 'ct_item',
 	    'orderby' => 'title',
