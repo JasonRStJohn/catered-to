@@ -193,8 +193,6 @@ add_action('wp_enqueue_scripts', 'enqueue_genre_ajax_scripts');
 function ajax_ct_course(){
 	$query_data = $_GET;
 	$ctCourse = ($query_data['course']);
-
-		function ct_ajax_menu($ctCourse){
 	$ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
@@ -220,6 +218,7 @@ function ajax_ct_course(){
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo '</table></div>'; wp_reset_query();
-
+  die();
 }
-add_shortcode( 'ctMenu', 'ct_ajax_menu' );
+add_shortcode( 'ctMenu', 'ajax_ct_course' );
+}
