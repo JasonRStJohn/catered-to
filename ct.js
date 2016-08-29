@@ -1,13 +1,16 @@
-  function ctMenuChange($cat) {
+//Genre Ajax Filtering
+jQuery(function($)
+{
+  ct_course();
 
-  }
-
-  function getSelectedCourse()
-
+  //If input is changed, load posts
+      $('#genre-filter input').live('click', function(){
+          ct_course(); //Load Posts
+      });
 
 
 //Main ajax function
-   function ct_course(course)
+   function ct_course(course = false)
    {
        var course_value = course;
        var ajax_url = ajax_genre_params.ajax_url; //Get ajax url (added through wp_localize_script)

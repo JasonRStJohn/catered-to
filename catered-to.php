@@ -215,7 +215,7 @@ function ajax_ct_course(){
 		echo '<li><input type="button" value="'.$cata->name.'" onclick="ct_course('.$cata->slug.');"></li>';
 	}
 	echo '</ul></div>';
-	echo '<div class="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
+	echo '<div id="ct-menu"><table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
 	while ( $loop->have_posts()) : $loop->the_post();
 	 $title = get_the_title();
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
