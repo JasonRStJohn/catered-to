@@ -191,10 +191,11 @@ $ct_menu_args = array(
 // Create shortcode for menu page
 
 function ct_ajax_menu(){
-	$ct_tax_query = array (
+	$ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
 			'terms'    => 'beef'
+		)
 		);
 	$ct_menu_args = array(
 	    'post_type' => 'ct_item',
