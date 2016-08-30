@@ -234,7 +234,6 @@ function ajax_ct_course(){
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo '</table>';
   echo '</div>';
-  get_footer();
   exit();
 }
 
@@ -245,8 +244,14 @@ function ajax_ct_course_page(){
   ajax_ct_course();
   echo'</div></div>';
 }
+
+function ct_get_foot(){
+  get_footer();
+}
+
 add_shortcode( 'ctMenu', 'ajax_ct_course_page' );
 //Add Ajax Actions
 add_action('wp_ajax_course_select_filter', 'ajax_ct_course');
 add_action('wp_ajax_nopriv_course_select_filter', 'ajax_ct_course');
+add_action('wp_footer','ct_get_foot');
 ?>
