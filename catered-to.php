@@ -233,7 +233,8 @@ function ajax_ct_course(){
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo '</table>';
-  wp_reset_query();
+  get_footer();
+  wp_reset_query();exit();
 }
 
 
@@ -242,7 +243,6 @@ function ajax_ct_course_page(){
   echo '<div id="ct-menu">';
   ajax_ct_course();
   echo'</div></div>';
-  die();
 }
 add_shortcode( 'ctMenu', 'ajax_ct_course_page' );
 //Add Ajax Actions
