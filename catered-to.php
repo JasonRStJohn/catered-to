@@ -242,7 +242,7 @@ function ajax_ct_course_page(){
   echo '<div id="ct-menu">';
   ajax_ct_course();
   echo'</div>';
-  wp_footer();
+  get_footer();
 }
 add_shortcode( 'ctMenu', 'ajax_ct_course_page' );
 //Add Ajax Actions
