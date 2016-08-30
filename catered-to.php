@@ -233,7 +233,7 @@ function ajax_ct_course(){
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo '</table>';
-  wp_reset_query();echo '</div>';
+  echo '</div>';
   exit();
 }
 
