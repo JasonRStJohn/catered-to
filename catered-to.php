@@ -30,7 +30,7 @@ function enqueue_ct_ajax_scripts() {
     wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
     wp_enqueue_script( 'ct-ajax-js' );
 }
-add_action('wp_enqueue_scripts', 'enqueue_ct_ajax_scripts');
+add_action('wp_footer', 'enqueue_ct_ajax_scripts');
 
 
 //Adds Items and Quotes post types to store individual menu items
@@ -206,25 +206,25 @@ function ajax_ct_course_select(){
 function ajax_ct_course(){
 	$query_data = $_GET;
   if(isset($query_data['course'])){
-	$ctCourse = ($query_data['course']);
-	$ct_tax_query = array ( array(
+	   $ctCourse = ($query_data['course']);
+	    $ct_tax_query = array ( array(
 			'taxonomy' => 'ct_course',
 			'field'    => 'slug',
 			'terms'    => $ctCourse
 		)
   );
-	$ct_menu_args = array(
-	    'post_type' => 'ct_item',
-	    'orderby' => 'title',
-	    'order' => 'ASC',
-			'tax_query' => $ct_tax_query
-	);
-} else {
-  $ct_menu_args = array(
-	    'post_type' => 'ct_item',
-	    'orderby' => 'title',
-	    'order' => 'ASC',
-  );
+    $ct_menu_args = array(
+        'post_type' => 'ct_item',
+        'orderby' => 'title',
+        'order' => 'ASC',
+    		'tax_query' => $ct_tax_query
+    );
+  } else {
+    $ct_menu_args = array(
+  	    'post_type' => 'ct_item',
+  	    'orderby' => 'title',
+  	    'order' => 'ASC',
+    );
 }
 	$loop = new WP_Query($ct_menu_args);
 		echo '<table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
