@@ -30,7 +30,7 @@ function enqueue_ct_ajax_scripts() {
     wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
     wp_enqueue_script( 'ct-ajax-js' );
 }
-add_action('wp_footer', 'enqueue_ct_ajax_scripts');
+add_action('wp_enqueue_scripts', 'enqueue_ct_ajax_scripts');
 
 
 //Adds Items and Quotes post types to store individual menu items
