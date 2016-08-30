@@ -26,7 +26,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 function enqueue_ct_ajax_scripts() {
-    wp_register_script( 'ct-ajax-js', 'http://jason.infinity.graphics/steve/wp-content/plugins/catered-to/js/ct.js', array('jquery'),'0.2', true);
+    wp_register_script( 'ct-ajax-js', 'http://jason.infinity.graphics/steve/wp-content/plugins/catered-to/js/ct.js', array('jquery'));
     wp_localize_script( 'ct-ajax-js', 'ajax_genre_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
     wp_enqueue_script( 'ct-ajax-js' );
 }
@@ -241,10 +241,10 @@ function ajax_ct_course_page(){
   ajax_ct_course_select();
   echo '<div id="ct-menu">';
   ajax_ct_course();
-  echo '</div>';
+  echo'</div>';
 }
 add_shortcode( 'ctMenu', 'ajax_ct_course_page' );
 //Add Ajax Actions
-add_action('wp_ajax_course_select_filter', 'ajax_ct_course_page');
-add_action('wp_ajax_nopriv_course_select_filter', 'ajax_ct_course_page');
+add_action('wp_ajax_course_select_filter', 'ajax_ct_course');
+add_action('wp_ajax_nopriv_course_select_filter', 'ajax_ct_course');
 ?>
