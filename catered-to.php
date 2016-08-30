@@ -219,7 +219,6 @@ function ajax_ct_course(){
 	    'order' => 'ASC',
 			'tax_query' => $ct_tax_query
 	);
-}
 } else {
   $ct_menu_args = array(
 	    'post_type' => 'ct_item',
