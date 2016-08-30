@@ -241,7 +241,7 @@ function ajax_ct_course(){
 function ajax_ct_course_page(){
   ajax_ct_course_select();
   echo '<div id="ct-menu">';
-  ajax_ct_course();
+  ajax_ct_course();get_footer();
   echo'</div></div>';
 }
 
