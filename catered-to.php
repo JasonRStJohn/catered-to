@@ -206,15 +206,21 @@ function ajax_ct_course(){
   ct_course_query($ct_menu_args);
   exit();
 }
-//generic WP_Query for menu by category
+//Generates generic WP_Query for menu by category and outputs it to a table body
 function ct_course_query($ct_menu_args) {
 	$loop = new WP_Query($ct_menu_args);
-		echo '<table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
+  	echo '<table><thead><tr><th>Name</th><th>Price</th></tr></thead>';  //DELETE FOR ADD BUTTONS
+   /* UNCOMMENT FOR ADD BUTTONS
+  	echo '<table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
+  */
 	while ( $loop->have_posts()) : $loop->the_post();
 	 $title = get_the_title();
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
-   echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
-	endwhile; echo '</table>';
+      echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td></tr>'; //DELETE FOR ADD BUTTONS
+   /* UNCOMMENT FOR ADD BUTTONS
+   echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></td></tr>';
+   */
+  endwhile; echo '</table>';
   echo '</div>';
 }
 //initializes menu with all Courses
@@ -228,7 +234,7 @@ function ct_course_init(){
   echo '</div>';
 }
 
-// Handler for Shortcode
+// Handles ctMenu Shortcode
 function ajax_ct_course_page(){
   ajax_ct_course_select();
   echo '<div id="ct-menu">';
