@@ -182,7 +182,7 @@ function ajax_ct_course_select(){
   	foreach ($catloop as $cata) {
   		echo '<li><input type="button" value="'.$cata->name.'" name="'.$cata->slug.'"></li>';
   	}
-    echo '</ul><br />'
+    echo '</ul><br />';
 
     echo'</div>';
 }
