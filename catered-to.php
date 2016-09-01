@@ -133,23 +133,8 @@ function custom_ct_item_column($column, $post_id) {
     }
 }
 add_action('manage_ct_item_posts_custom_column','custom_ct_item_column',10,2);
-/* Plan for Event and Order Schema
-   Event
-      id
-      name
-      date
-      date booked
-      cost
-      paid
-    Order
-      id
-      ev_id
-      course
-      itm_id
-      qty
-*/
+// Creates Course Taxonomy
 if ( ! function_exists( 'ct_course_tax' ) ) {
-
 // Register Custom Taxonomy
 function ct_course_tax() {
 
@@ -191,41 +176,37 @@ add_action( 'init', 'ct_course_tax', 0 );
 
 }
 
-
-// Create shortcode for menu page
-//Enqueue Ajax Scripts
-
 function ajax_ct_course_select(){
     $catloop = get_terms( array('taxonomy'=>'ct_course'));
     echo '<div id="ct-menu-select"><ul class="ct-menu-nav">';
   	foreach ($catloop as $cata) {
   		echo '<li><input type="button" value="'.$cata->name.'" name="'.$cata->slug.'"></li>';
   	}
-    echo '</ul></div>';
+    echo '</ul><br />'
+
+    echo'</div>';
 }
+
+//AJAX handler for regenerating the menu table
 function ajax_ct_course(){
 	$query_data = $_GET;
-  if(isset($query_data['course'])){
-	   $ctCourse = ($query_data['course']);
-	    $ct_tax_query = array ( array(
-			'taxonomy' => 'ct_course',
-			'field'    => 'slug',
-			'terms'    => $ctCourse
-		)
+   $ctCourse = ($query_data['course']);
+    $ct_tax_query = array ( array(
+  	'taxonomy' => 'ct_course',
+  	'field'    => 'slug',
+  	'terms'    => $ctCourse
+  )
   );
-    $ct_menu_args = array(
-        'post_type' => 'ct_item',
-        'orderby' => 'title',
-        'order' => 'ASC',
-    		'tax_query' => $ct_tax_query
+  $ct_menu_args = array(
+      'post_type' => 'ct_item',
+      'orderby' => 'title',
+      'order' => 'ASC',
+  		'tax_query' => $ct_tax_query
     );
-  } else {
-    $ct_menu_args = array(
-  	    'post_type' => 'ct_item',
-  	    'orderby' => 'title',
-  	    'order' => 'ASC',
-    );
+  ct_course_query($ct_menu_args);
 }
+//generic WP_Query for menu by category
+function ct_course_query($ct_menu_args) {
 	$loop = new WP_Query($ct_menu_args);
 		echo '<table><thead><tr><th>Name</th><th>Price</th><th>Add To Event</th></tr></thead>';
 	while ( $loop->have_posts()) : $loop->the_post();
@@ -233,15 +214,25 @@ function ajax_ct_course(){
    $price = get_post_meta(get_the_ID(),'ct_price' ,true);
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo '</table>';
-  echo '</div>';get_footer();
+  echo '</div>';
   exit();
 }
+//initializes menu with all Courses
+function ct_course_init(){
+  $ct_menu_args = array(
+      'post_type' => 'ct_item',
+      'orderby' => 'title',
+      'order' => 'ASC',
+    );
+  ct_course_query($ct_menu_args);
+}
 
-
+// Handler for Shortcode
 function ajax_ct_course_page(){
   ajax_ct_course_select();
   echo '<div id="ct-menu">';
-  ajax_ct_course();
+  ct_course_init();
+  get_footer();
   echo'</div></div>';
 }
 
