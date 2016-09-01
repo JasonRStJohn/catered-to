@@ -225,6 +225,7 @@ function ct_course_init(){
       'order' => 'ASC',
     );
   ct_course_query($ct_menu_args);
+  echo '</div>';
 }
 
 // Handler for Shortcode
