@@ -204,6 +204,7 @@ function ajax_ct_course(){
   		'tax_query' => $ct_tax_query
     );
   ct_course_query($ct_menu_args);
+  exit();
 }
 //generic WP_Query for menu by category
 function ct_course_query($ct_menu_args) {
@@ -215,7 +216,6 @@ function ct_course_query($ct_menu_args) {
    echo '<tr><td>'.$title.'</td><td> $ '.$price.'</td><td><input type="number" style="width:60px"><input type="button" value="Add"></tr>';
 	endwhile; echo '</table>';
   echo '</div>';
-  exit();
 }
 //initializes menu with all Courses
 function ct_course_init(){
