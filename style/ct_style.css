@@ -1,0 +1,145 @@
+div#ct-container {
+	margin-top:45px;
+}
+div.ct-hidden {
+	display:none;
+}
+tr.ct-hidden {
+	display:none;
+}
+ul.ct-menu-nav li {
+	list-style:none;
+	border: 1px solid white;
+}
+ul.ct-menu-opt li {
+	list-style:none;
+	color:white;
+}
+div#ct-menu-select input.ct-course{
+	background:none;
+	border:none;
+	color:white;
+	width:100%;
+	text-align:left;
+	padding-left:10px;
+	font-size:100%;
+}
+div#ct-menu-select ul.ct-menu-nav {
+	padding:0;
+}
+#ct-menu-select { 
+	width:25%;
+	min-height:300px;
+	background-color:grey;
+	float:left;
+	margin-left:75px; 
+}
+#ct-menu { 
+	float:right; 
+	width:60%;
+}
+.ct-highlighted {
+	background-color:black;
+}
+
+#ct-order select {
+	min-width:160px;
+}
+
+@media (max-width:800px) {
+	#ct-menu-select {
+		width:100%;
+		margin-left:0 !important;
+	}
+	#ct-menu { 
+	clear:both;
+	width:100%;
+	margin: 20px auto 0 auto;
+	}
+}
+#ui-datepicker-div {
+	background-color:white;
+}
+#ct-order {
+	font-size:1.2em;
+}
+.ct-add {
+	font-size:1em;
+	width:80%;	
+}
+#ct-quote h2 {
+	font-size: 1.2em;
+}
+#ct-quote table {
+	margin-left:25px;
+}
+#ct-quote td.ct-subcat {
+	min-width:120px;
+}
+#ct-quote td.ct-itemname {
+	min-width:200px;
+}
+#ct-quote td.ct-qty-table {
+	min-width:44px;
+}
+#ct-quote td.ct-cost {
+	min-width:40px;
+	text-align: right;
+	padding-right:4px;
+}
+#ct-quote input.ct-quant-changer {
+	max-width:40px;
+}
+#ct-quote h3#ct-event-details-title, h3#ct-event-menu-title, h4#ct-event-notes-title, h3#ct-event-contacts-title, h4#ct-event-terms-title, h3#ct-event-sched-title{
+	text-decoration:underline;
+}
+.ct-remove {
+	display:none;
+}
+.ct-rem-cont{
+	width:15px;
+	height:15px;
+}
+.ct-rem-cont:hover .ct-remove{
+	display:block;
+}
+.ct-quant-changer {
+	border:0;
+}
+div.inside {
+	overflow:hidden;
+}
+
+#ct-menu-cont {
+	margin-right:200px;
+	float:right;
+}
+#ct-infotainer {
+	max-width:200px;
+	margin-left:20px;
+	float:left;
+}
+hr {
+	clear:both;
+}
+#ct-quote {
+	margin-left:auto;
+	margin-right:auto;
+	overflow:hidden;
+	width:950px;
+}
+
+#ct-quote-header img{
+	width:200px;
+}
+
+.ct-item-notes {
+	font-size:.9em;
+	padding-left:15px;
+	max-width:370px;
+}
+/*  specific for Samantha's current theme*/
+
+.l-subsection {
+	clear:both;
+} 
